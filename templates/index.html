@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="/static/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <!-- <div class="navbar">
+    <div class="brand">
+      <a href="#!">RucuBot</a>
+    </div>
+    
+    <a href="#news"> Clear Chat <i class="fa fa-trash"></i></a>
+    <div class="dropdown">
+      <button class="dropbtn">English
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="#">Swahili</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+      </div>
+    </div>
+  </div> -->
+  <section class="navigation">
+    <div class="nav-container">
+      <div class="brand">
+        <a href="#!">RucuBot</a>
+      </div>
+      <nav>
+        <div class="nav-mobile"><a id="navbar-toggle" href="#!"><span></span></a></div>
+        <ul class="nav-list">
+
+          <li>
+            <a href="#!">English</a>
+            <ul class="navbar-dropdown">
+              <li>
+                <a href="#!">Swahili</a>
+              </li>
+
+            </ul>
+          </li>
+          <li>
+            <a href="#!">Clear Chat <i class="fa fa-trash"></i></a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+
+  <div>
+    <div id="chatbox">
+      <div class="ChatItem ChatItem--customer">
+        <div class="ChatItem-meta">
+          <div class="ChatItem-avatar">
+           
+            <img class="ChatItem-avatarImage" src="../static/bot.jpg">
+          </div>
+        </div>
+        <div class="ChatItem-chatContent">
+          <div class="ChatItem-chatText">Hi I'm Benji,RUCU Virtual Assistant.How can i help you ?</div>
+          <div class="ChatItem-timeStamp"><strong>RucuBot</strong> • Today 05:49</div>
+        </div>
+      </div>
+    </div>
+    <div id="allLoaders"></div>
+    <div id="userInput">
+
+      <input id="input" type="text" name="msg" placeholder="Message ..">
+      <!-- <input id="submit" type="submit" value="Submit"> -->   
+         <button id="submit" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+      <!-- <i class="fa fa-paper-plane" aria-hidden="true"></i> -->
+
+      <!-- <input id="input" type="text" name="msg" placeholder="Message">
+      <input id="submit" type="submit" value="Send"> -->
+    </div>
+    <script>
+  $('#navbar-toggle').click(function() {
+        $('nav ul').slideToggle();
+      });
+  
+  
+      // Hamburger toggle
+      $('#navbar-toggle').on('click', function() {
+        this.classList.toggle('active');
+      });
+  
+  
+      // If a link has a dropdown, add sub menu toggle.
+      $('nav ul li a:not(:only-child)').click(function(e) {
+        $(this).siblings('.navbar-dropdown').slideToggle("slow");
+  
+        // Close dropdown when select another dropdown
+        $('.navbar-dropdown').not($(this).siblings()).hide("slow");
+        e.stopPropagation();
+      });
+  
+  
+      // Click outside the dropdown will remove the dropdown class
+      $('html').click(function() {
+        $('.navbar-dropdown').hide();
+      });
+        var parentwrapper22 = $("<div/>").addClass("ChatItem ChatItem--customer");
+        var loaderWrapper =    $("<div/>").addClass("ticontainer");
+       var loaderBlock =  $("<div/>").addClass("tiblock");
+       var loader1 =  $("<div/>").addClass("tidot");
+       var loader2 =  $("<div/>").addClass("tidot");
+        var loader3 =  $("<div/>").addClass("tidot");
+
+   var myLoader=  $(loaderWrapper).append(loaderBlock);
+   $(loaderBlock).append(loader1).append(loader2).append(loader3);
+   var isLoading =$("#allLoaders").append(myLoader);
+   var myFinalVar22 = $(parentwrapper22).append(isLoading);
+  //  var finall = $("#chatbox").append(myFinalVar22);
+     function ItsLoading() {
+      
+//    var metaDiv2 = $("<div/>").addClass("ChatItem-meta");
+// var avatarDiv2 = $("<div/>").addClass("ChatItem-avatar");
+// var image = '<img class="ChatItem-avatarImage" src="../static/bot.jpg">';
+// var photoUrl2 = " ../static/bot.jpg";
+// var image2= $('<img/>');
+// image2.attr('class', "ChatItem-avatarImage");
+// image2.attr('src', photoUrl2);
+
+// var contentDiv2 = $("<div/>").addClass("ChatItem-chatContent");
+// var textDiv2 = $("<div/>").addClass("ChatItem-chatText");
+// var myAvatar2 = $(avatarDiv2).append(image2);
+// var timeStamp2 = $("<div/>").addClass("ChatItem-timeStamp");
+// var myTime2 = '<span ><strong>Chat Bot</strong> • Today 08:23</span>';
+
+  
+  //  isLoading.fadeOut().empty();
+   $("#chatbox").append(myFinalVar22);
+  // setTimeout(function removeLoader(params) {
+  //   myFinalVar22.fadeOut();
+  //  }, 3000)
+  
+      }
+   
+
+
+  function getBotResponse() {
+        var rawText = $("#input").val();
+        var parentwrapper = $("<div/>").addClass("ChatItem ChatItem--expert");
+
+        var metaDiv = $("<div/>").addClass("ChatItem-meta");
+        var avatarDiv = $("<div/>").addClass("ChatItem-avatar");
+        // var image = '<img class="ChatItem-avatarImage" src="../static/bot.jpg">';
+        var photoUrl = " ../static/user2.png";
+        var image = $('<img/>');
+        image.attr('class', "ChatItem-avatarImage");
+        image.attr('src', photoUrl);
+        var currentdate = new Date(); 
+    var datetime = "• Today "  
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes()
+                ":" 
+                + currentdate.getSeconds();
+        
+        var contentDiv = $("<div/>").addClass("ChatItem-chatContent");
+        var timeStamp = $("<div/>").addClass("ChatItem-timeStamp");
+        var myTime = ' <span ><strong>Me</strong> '+datetime+' </span>';
+        var textDiv = $("<div/>").addClass("ChatItem-chatText");
+        var myAvatar = $(avatarDiv).append(image);
+
+        var userHtml = ' <span class>' + rawText + '</span>';
+        var myFinalVar = $(parentwrapper).append(metaDiv).append(contentDiv);
+        $(metaDiv).append(myAvatar);
+        $(contentDiv).append(textDiv).append(timeStamp);
+        $(timeStamp).append(myTime);
+        $(textDiv).append(userHtml);
+        $("#input").val("");
+        $("#chatbox").append(myFinalVar);
+      
+// Bot
+
+        document.getElementById('userInput').scrollIntoView({ block: 'start', behavior: 'smooth' });
+        $.get("/get", { msg: rawText }).done( setTimeout(ItsLoading(),2000),
+        
+       function myResponse (data) {
+          var botHtml = ' <span>' + data + '</span> ';
+     
+var parentwrapper2 = $("<div/>").addClass("ChatItem ChatItem--customer");
+// var loaderWrapper =    $("<div/>").addClass("ticontainer");
+//        var loaderBlock =  $("<div/>").addClass("tiblock");
+//        var loader1 =  $("<div/>").addClass("tidot");
+//        var loader2 =  $("<div/>").addClass("tidot");
+//         var loader3 =  $("<div/>").addClass("tidot");
+
+//    var myLoader=  $(loaderWrapper).append(loaderBlock);
+//    $(loaderBlock).append(loader1).append(loader2).append(loader3);
+//    var isLoading =$("#allLoaders").append(myLoader);
+
+var metaDiv2 = $("<div/>").addClass("ChatItem-meta");
+var avatarDiv2 = $("<div/>").addClass("ChatItem-avatar");
+// var image = '<img class="ChatItem-avatarImage" src="../static/bot.jpg">';
+var photoUrl2 = " ../static/bot.jpg";
+var image2= $('<img/>');
+image2.attr('class', "ChatItem-avatarImage");
+image2.attr('src', photoUrl2);
+
+var contentDiv2 = $("<div/>").addClass("ChatItem-chatContent");
+var textDiv2 = $("<div/>").addClass("ChatItem-chatText");
+var myAvatar2 = $(avatarDiv2).append(image2);
+var timeStamp2 = $("<div/>").addClass("ChatItem-timeStamp");
+var myTime2 = '<span ><strong>RucuBot</strong> '+datetime+'</span>';
+
+var myFinalVar2 = $(parentwrapper2).append(metaDiv2).append(contentDiv2);
+// var myFinalVar2 = $(parentwrapper2).append(isLoading);
+$(metaDiv2).append(myAvatar2);
+$(contentDiv2).append(textDiv2).append(timeStamp2);
+$(timeStamp2).append(myTime2);
+$(textDiv2).append(botHtml);
+// loader
+
+          $("#chatbox").append(myFinalVar2);
+
+          document.getElementById('userInput').scrollIntoView({ block: 'start', behavior: 'smooth' });
+  } )
+        };
+      
+      $("#input").keypress(function (e) {
+        if ((e.which == 13) && document.getElementById("input").value != "") {
+          getBotResponse();
+        }
+      });
+      $("#submit").click(function () {
+        if (document.getElementById("input").value != "") {
+          // setTimeout(ItsLoading, 3000);
+          getBotResponse();
+          // setTimeout(ItsLoading,1000);
+          // setTimeout(myResponse,3000);
+         
+     
+         
+         
+        }
+      })
+    
+    </script>
+  </div>
+</body>
+
+</html>
